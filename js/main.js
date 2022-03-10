@@ -21,8 +21,6 @@ const scroll = new LocomotiveScroll({
 
 const accordionWrapper = document.querySelectorAll(".accordion-wrapper");
 const accordion = document.querySelectorAll(".accordion");
-const progressionBarWrapper = document.querySelectorAll(".progressionBar-wrapper__main");
-const progressionBar = document.querySelectorAll(".progressionBar");
 
 const sectionMe = document.querySelector("#Me");
 const sectionSkills = document.querySelector("#Skills");
@@ -50,15 +48,15 @@ scroll.on("scroll", () => {
   });
 });
 
-logoMe.addEventListener('click', ()=>{
+logoMe.addEventListener("click", () => {
   scroll.scrollTo("top");
-})
-logoSkills.addEventListener('click', ()=>{
+});
+logoSkills.addEventListener("click", () => {
   scroll.scrollTo(sectionSkills);
-})
-logoProjects.addEventListener('click', ()=>{
+});
+logoProjects.addEventListener("click", () => {
   scroll.scrollTo(sectionProjects);
-})
+});
 
 // Functions
 
@@ -77,3 +75,30 @@ blurOff = (element) => {
 blurOn = (element) => {
   element.classList.remove("blurOff");
 };
+
+// Progression bar
+const HTMLCSS = 80;
+const JS = 80;
+const REACT = 60;
+const FrontEnd = (HTMLCSS + JS + REACT) / 3;
+const totalFront = [FrontEnd, HTMLCSS, JS, REACT];
+
+const MongoDB = 0;
+const Express = 0;
+const NodeJS = 0;
+const BackEnd = (MongoDB, Express, NodeJS) / 3;
+const totalBack = [BackEnd, MongoDB, Express, NodeJS];
+
+const progressionBarWrapper = document.querySelectorAll(".progressionBar-wrapper__main");
+const progressionBar = document.querySelectorAll(".progressionBar"); // 0 = FrontEnd, 1 = HTML CSS, 2 = JS, 3 = React, 4 = Backend, 5 = Mongo, 6 = Express, 7 = Node
+console.log(progressionBar)
+
+totalFront.forEach((e, i) => {
+  progressionBar[i].style.width = e + "%";
+});
+
+
+totalBack.forEach((e, i) => {
+  progressionBar[i+4].style.width = e + "%";
+});
+

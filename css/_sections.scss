@@ -1,5 +1,7 @@
 main {
   margin: 75px;
+  margin-top: 0;
+  padding-top: 75px;
   .section_me {
     display: flex;
     flex-direction: column;
@@ -75,11 +77,16 @@ main {
           display: flex;
           align-items: center;
           gap: 30px;
+          position: relative;
           cursor: pointer;
-          .progressionBar {
+          .progressionBar, .totalBar {
             height: 5px;
             width: 100%;
             transition: width -15s ease-out;
+            border: 1px solid red;
+          }
+          .progressionBar{
+            position: absolute;
             background-color: red;
           }
         }
