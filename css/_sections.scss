@@ -1,0 +1,158 @@
+main {
+  margin: 75px;
+  .section_me {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    height: 100vh;
+  }
+  section {
+    min-height: 100vh;
+    margin-top: 5em;
+  }
+
+  .section_me--presentation,
+  .section_me--aboutMe {
+    text-align: right;
+    width: 50%;
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 400;
+    }
+  }
+  .section_me--presentation {
+    margin-top: 10em;
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+  .section_me--aboutMe {
+    margin-top: 5em;
+    text-align: right;
+  }
+
+  .section_skills {
+    display: flex;
+    h1 {
+      font-size: 4rem;
+      font-weight: 600;
+    }
+    .section_skills--left,
+    .section_skills--right {
+      width: 50%;
+      padding: 3em;
+      text-align: left;
+    }
+    .section_skills--left {
+      h1 {
+        max-width: 400px;
+      }
+    }
+    .section_skills--right {
+      .section_skills--right-skill {
+        list-style: none;
+        li {
+          font-size: 2rem;
+        }
+        .accordion-wrapper {
+          // display: flex;
+          .accordion {
+            padding-left: 2em;
+            padding-right: 5em;
+            max-height: 0;
+            transition: max-height 0.5s ease-out;
+            overflow: hidden;
+            cursor: pointer;
+          }
+          .active {
+            max-height: 15em;
+          }
+        }
+        .progressionBar-wrapper__main,
+        .progressionBar-wrapper {
+          width: 100%;
+          padding: 10px 10px 10px 0;
+          display: flex;
+          align-items: center;
+          gap: 30px;
+          cursor: pointer;
+          .progressionBar {
+            height: 5px;
+            width: 100%;
+            transition: width -15s ease-out;
+            background-color: red;
+          }
+        }
+        .progressionBar-wrapper__main {
+          &::after {
+            content: "\25BC";
+            color: var(--color-white);
+            font-size: 1.5rem;
+            transition: transform 0.5s;
+          }
+        }
+        .active {
+          &::after {
+            transform: rotate(-180deg);
+          }
+        }
+      }
+      .section_skills--right_certifications {
+        margin-top: 5em;
+        display: flex;
+        gap: 15px;
+        .certification-wrap {
+          border: 1px solid var(--color-lines);
+          background-color: rgba(38, 37, 35, 0.4);
+          padding: 1em;
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          p,
+          h4,
+          a {
+            color: var(--color-gray);
+          }
+          p,
+          a {
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+
+  .section_projects {
+    h1 {
+      text-align: center;
+    }
+    .swiper {
+      margin: 5em 15em;
+      text-align: center;
+      .swiper-slide {
+        transition: all 0.5s ease-out;
+        transform: scale(0.7);
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+        img {
+          width: 100%;
+        }
+      }
+      .swiper-slide-active {
+        transform: scale(1);
+        &::after {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+.left_sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 4em 0.5em;
+  background-color: rgba(38, 37, 35, 0.2);
+  z-index: 5;
+  .left_sidebar--logoJY,
+  .left_sidebar--menu,
+  .left_sidebar--socialIcons {
+    z-index: 5;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    span,
+    a {
+      display: flex;
+      position: relative;
+    }
+    div {
+      position: absolute;
+      right: 110px;
+      width: 80px;
+      opacity: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      transition: all 1s ease-in-out;
+      p {
+        font-size: 0.8rem;
+        text-align: center;
+      }
+    }
+  }
+  .left_sidebar--menu {
+    img {
+      width: 30px;
+      height: 30px;
+    }
+    span {
+      filter: blur(1px);
+      transition: filter 0.5s;
+      cursor: pointer;
+    }
+    .blurOff {
+      filter: none;
+    }
+  }
+  .left_sidebar--hover {
+    background-color: rgba(38, 37, 35, 0.2);
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    min-width: 0px;
+    transition: min-width 0.5s ease-in-out;
+  }
+  &:hover {
+    .left_sidebar--hover {
+      min-width: 200px;
+    }
+    .left_sidebar--logoJY,
+    .left_sidebar--menu,
+    .left_sidebar--socialIcons {
+      div{
+        right: -110px;
+        opacity: 1;
+      }
+      
+    }
+  }
+}
+
+.right_sidebar {
+  position: fixed;
+  right: 20px;
+  width: 40px;
+  bottom: 0;
+  left: auto;
+  margin-bottom: 4em;
+  display: flex;
+  justify-content: center;
+  a {
+    writing-mode: vertical-lr;
+    color: var(--color-white);
+  }
+}
