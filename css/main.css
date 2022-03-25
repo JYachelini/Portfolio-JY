@@ -210,6 +210,8 @@ main .section_me {
 main section {
   min-height: 100vh;
   margin-top: 5em;
+  position: relative;
+  z-index: 1;
 }
 
 main .section_me--presentation,

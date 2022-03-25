@@ -48,16 +48,6 @@ scroll.on("scroll", () => {
   });
 });
 
-logoMe.addEventListener("click", () => {
-  scroll.scrollTo("top");
-});
-logoSkills.addEventListener("click", () => {
-  scroll.scrollTo(sectionSkills);
-});
-logoProjects.addEventListener("click", () => {
-  scroll.scrollTo(sectionProjects);
-});
-
 // Functions
 
 detectInView = (section, element, callback1, callback2) => {
@@ -76,6 +66,17 @@ blurOn = (element) => {
   element.classList.remove("blurOff");
 };
 
+// EventListener scrollTo
+logoMe.addEventListener("click", () => {
+  scroll.scrollTo("top");
+});
+logoSkills.addEventListener("click", () => {
+  scroll.scrollTo(sectionSkills);
+});
+logoProjects.addEventListener("click", () => {
+  scroll.scrollTo(sectionProjects);
+});
+
 // Progression bar
 const HTMLCSS = 80;
 const JS = 80;
@@ -91,14 +92,12 @@ const totalBack = [BackEnd, MongoDB, Express, NodeJS];
 
 const progressionBarWrapper = document.querySelectorAll(".progressionBar-wrapper__main");
 const progressionBar = document.querySelectorAll(".progressionBar"); // 0 = FrontEnd, 1 = HTML CSS, 2 = JS, 3 = React, 4 = Backend, 5 = Mongo, 6 = Express, 7 = Node
-console.log(progressionBar)
+console.log(progressionBar);
 
 totalFront.forEach((e, i) => {
   progressionBar[i].style.width = e + "%";
 });
 
-
 totalBack.forEach((e, i) => {
-  progressionBar[i+4].style.width = e + "%";
+  progressionBar[i + 4].style.width = e + "%";
 });
-
