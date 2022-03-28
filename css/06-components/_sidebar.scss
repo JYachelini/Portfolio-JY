@@ -1,4 +1,5 @@
 .left_sidebar {
+  // display: none !important; //Testeando mobile
   position: fixed;
   left: 0;
   top: 0;
@@ -6,9 +7,12 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  padding: 4em 0.5em;
+  padding: 4em 0;
   background-color: rgba(38, 37, 35, 0.2);
   z-index: 5;
+  @media only screen and (min-width: $breakpoint-lg){
+    padding: 4em 0.5em;
+  }
   .left_sidebar--logoJY,
   .left_sidebar--menu,
   .left_sidebar--socialIcons {
@@ -21,17 +25,28 @@
     a {
       display: flex;
       position: relative;
+      flex-direction: column;
+      @media only screen and (min-width: $breakpoint-lg){
+        flex-direction: row;
+      }
+      img {
+        width: 30px;
+        height: 30px;
+        margin: auto;
+      }
     }
     div {
-      position: absolute;
-      right: 110px;
       width: 80px;
-      opacity: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100%;
-      transition: all .7s ease-in-out;
+      transition: all 0.7s ease-in-out;
+      @media only screen and (min-width: $breakpoint-lg){
+        opacity: 0;
+        position: absolute;
+        right: 110px;
+      }
       p {
         font-size: 0.8rem;
         text-align: center;
@@ -39,10 +54,6 @@
     }
   }
   .left_sidebar--menu {
-    img {
-      width: 30px;
-      height: 30px;
-    }
     span {
       filter: blur(1px);
       transition: filter 0.5s;
@@ -60,7 +71,7 @@
     left: 0;
     bottom: 0;
     min-width: 0px;
-    transition: min-width .7s ease-in-out;
+    transition: min-width 0.7s ease-in-out;
   }
   &:hover {
     .left_sidebar--hover {
@@ -69,11 +80,32 @@
     .left_sidebar--logoJY,
     .left_sidebar--menu,
     .left_sidebar--socialIcons {
-      div{
+      div {
         right: -110px;
         opacity: 1;
       }
-      
+    }
+  }
+}
+
+.openMenu-mobile {
+  position: fixed;
+  top: 50%;
+  left: -5px;
+  bottom: 0;
+  cursor: pointer;
+  height: 20px;
+  z-index: 2;
+  display: flex;
+  .arrow{
+    transform: translateX(-5px);
+  }
+  .arrow.running {
+    animation: bounce 700ms 3 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+  @keyframes bounce {
+    50% {
+      transform: translateX(0px) scale(1.1);
     }
   }
 }

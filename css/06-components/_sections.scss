@@ -2,50 +2,69 @@ main {
   margin: 75px;
   margin-top: 0;
   padding-top: 75px;
+  z-index: 2;
+  position: relative;
+  section {
+    min-height: 100vh;
+    margin-top: 5em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    @media only screen and(min-width:$breakpoint-lg){
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
   .section_me {
     display: flex;
     flex-direction: column;
     align-items: end;
     height: 100vh;
   }
-  section {
-    min-height: 100vh;
-    margin-top: 5em;
-    position: relative;
-    z-index: 1;
-  }
-
   .section_me--presentation,
   .section_me--aboutMe {
-    text-align: right;
-    width: 50%;
+    width: 100%;
+    @media only screen and (min-width: $breakpoint-lg) {
+      width: 50%;
+    }
     h1 {
       font-size: 2.5rem;
       font-weight: 400;
     }
   }
   .section_me--presentation {
-    margin-top: 10em;
+    text-align: right;
+    margin-top: 5em;
     h3 {
       font-size: 1.5rem;
     }
   }
   .section_me--aboutMe {
-    margin-top: 5em;
-    text-align: right;
+    text-align: left;
+    margin-top: 10em;
+    @media only screen and (min-width: $breakpoint-lg) {
+      text-align: right;
+    }
   }
 
   .section_skills {
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    @media only screen and (min-width: $breakpoint-lg) {
+      flex-direction: row;
+    }
     h1 {
       font-size: 4rem;
       font-weight: 600;
     }
     .section_skills--left,
     .section_skills--right {
-      width: 50%;
-      padding: 3em;
+      width: 100%;
       text-align: left;
+      @media only screen and (min-width: $breakpoint-lg) {
+        width: 50%;
+        padding: 3em;
+      }
     }
     .section_skills--left {
       h1 {
@@ -81,20 +100,21 @@ main {
           gap: 30px;
           position: relative;
           cursor: pointer;
-          .progressionBar, .totalBar {
+          .progressionBar,
+          .totalBar {
             height: 5px;
             width: 100%;
             transition: width -15s ease-out;
             border: 1px solid red;
           }
-          .progressionBar{
+          .progressionBar {
             position: absolute;
             background-color: red;
           }
         }
         .progressionBar-wrapper__main {
           &::after {
-            content: "\25BC";
+            content: '\25BC';
             color: var(--color-white);
             font-size: 1.5rem;
             transition: transform 0.5s;
@@ -137,14 +157,19 @@ main {
       text-align: center;
     }
     .swiper {
-      margin: 5em 15em;
       text-align: center;
+      margin-top: 10em;
+      // overflow: visible;
+      @media only screen and (min-width: $breakpoint-lg) {
+        margin: 5em 15em;
+        // overflow: hidden;
+      }
       .swiper-slide {
         transition: all 0.5s ease-out;
         transform: scale(0.7);
         position: relative;
         &::after {
-          content: "";
+          content: '';
           position: absolute;
           top: 0;
           left: 0;
