@@ -396,7 +396,21 @@ main .section_skills .section_skills--right .section_skills--right-skill .accord
   -webkit-transition: max-height 0.5s ease-out;
   transition: max-height 0.5s ease-out;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   cursor: pointer;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .section_skills .section_skills--right .section_skills--right-skill .accordion-wrapper .accordion img,
+main .section_skills .section_skills--right .section_skills--right-skill .accordion-wrapper .accordion p {
+  max-height: 50px;
 }
 
 main .section_skills .section_skills--right .section_skills--right-skill .accordion-wrapper .active {
